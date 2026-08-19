@@ -1,0 +1,14 @@
+name: tesseract
+displayName: Tesseract AI Platform Manager
+description: Official Tesseract AI Platform Manager for user accounts, subscription tiers, SEO project sharing, and ad-hoc LLM visibility search.
+icon: https://tesseract.adlift.com/assets/logo-for-og.png
+repository: https://github.com/Mohitkaushal977/tesseract-mcp
+transport: sse
+endpoint: https://prod2.adlift.com/mcp/sse
+tags:
+  - tesseract
+  - adlift
+  - user-management
+  - subscription-manager
+  - seo
+  - llm-search

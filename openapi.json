@@ -1,0 +1,327 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Tesseract AI Platform Manager",
+    "description": "Official Tesseract AI Platform Manager for user account management, subscription provisioning, and SEO project sharing.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://prod2.adlift.com",
+      "description": "Production Server"
+    }
+  ],
+  "paths": {
+    "/api/mcp/request-otp/": {
+      "post": {
+        "summary": "Send OTP to User Email",
+        "operationId": "requestLoginOtp",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "user@adlift.com"
+                  }
+                },
+                "required": [
+                  "email"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OTP sent"
+          }
+        }
+      }
+    },
+    "/api/mcp/verify-otp/": {
+      "post": {
+        "summary": "Verify Email OTP Code",
+        "operationId": "verifyLoginOtp",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "user@adlift.com"
+                  },
+                  "otp_code": {
+                    "type": "string",
+                    "example": "123456"
+                  }
+                },
+                "required": [
+                  "email",
+                  "otp_code"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OTP verified"
+          }
+        }
+      }
+    },
+    "/api/mcp/get-user/": {
+      "post": {
+        "summary": "Get User Account Details",
+        "operationId": "getUserDetails",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "user@adlift.com"
+                  }
+                },
+                "required": [
+                  "email"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User details returned"
+          }
+        }
+      }
+    },
+    "/api/mcp/list-projects/": {
+      "post": {
+        "summary": "List SEO Projects",
+        "operationId": "listProjects",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string",
+                    "example": "Airbnb"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Projects listed"
+          }
+        }
+      }
+    },
+    "/api/mcp/share-project/": {
+      "post": {
+        "summary": "Share Project with User",
+        "operationId": "shareProjectWithUser",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "project_identifier": {
+                    "type": "string",
+                    "example": "1561"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "user@adlift.com"
+                  }
+                },
+                "required": [
+                  "project_identifier",
+                  "email"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Project shared"
+          }
+        }
+      }
+    },
+    "/api/mcp/signup-user/": {
+      "post": {
+        "summary": "Sign Up New User (Default Free 7 Days)",
+        "operationId": "signupUser",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "newuser@domain.com"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "first_name": {
+                    "type": "string"
+                  },
+                  "last_name": {
+                    "type": "string"
+                  },
+                  "subscription_type": {
+                    "type": "string",
+                    "example": "Free"
+                  },
+                  "credits": {
+                    "type": "integer",
+                    "example": 1000
+                  }
+                },
+                "required": [
+                  "email"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User signed up"
+          }
+        }
+      }
+    },
+    "/api/mcp/update-subscription/": {
+      "post": {
+        "summary": "Update User Subscription Plan",
+        "operationId": "updateUserSubscription",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "user@domain.com"
+                  },
+                  "subscription_type": {
+                    "type": "string",
+                    "example": "Pro"
+                  },
+                  "credits": {
+                    "type": "integer",
+                    "example": 50000
+                  },
+                  "duration_days": {
+                    "type": "integer",
+                    "example": 30
+                  }
+                },
+                "required": [
+                  "email",
+                  "subscription_type"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Subscription updated"
+          }
+        }
+      }
+    },
+    "/api/mcp/adhoc-search/": {
+      "post": {
+        "summary": "Run Ad-Hoc LLM Visibility Search Across ChatGPT, Gemini, Perplexity, DeepSeek, and Claude",
+        "operationId": "adhocLLMSearch",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "brand_name": {
+                    "type": "string",
+                    "example": "Adlift"
+                  },
+                  "brand_url": {
+                    "type": "string",
+                    "example": "https://adlift.com"
+                  },
+                  "keywords": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "SEO services",
+                      "digital marketing agency"
+                    ]
+                  },
+                  "competitors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "country": {
+                    "type": "string",
+                    "example": "us"
+                  }
+                },
+                "required": [
+                  "brand_name",
+                  "brand_url",
+                  "keywords"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ad-hoc search results returned"
+          }
+        }
+      }
+    }
+  }
+}

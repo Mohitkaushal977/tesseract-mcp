@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/registry/main/schema.json",
+  "name": "tesseract",
+  "displayName": "Tesseract AI Platform Manager",
+  "description": "Official Tesseract AI Platform Manager for user account administration, subscription management (Free, Basic, Pro, Enterprise), SEO project sharing, and multi-LLM ad-hoc search.",
+  "version": "1.0.0",
+  "author": "Adlift / Tesseract AI",
+  "homepage": "https://tesseract.adlift.com",
+  "repository": "https://github.com/Mohitkaushal977/tesseract-mcp",
+  "license": "MIT",
+  "transport": {
+    "type": "sse",
+    "url": "https://prod2.adlift.com/mcp/sse"
+  },
+  "icons": [
+    {
+      "src": "https://tesseract.adlift.com/assets/logo-for-og.png",
+      "mimeType": "image/png"
+    }
+  ]
+}
