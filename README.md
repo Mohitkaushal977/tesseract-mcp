@@ -1,5 +1,7 @@
 # 🚀 Tesseract AI Platform Manager — Remote MCP Server
 
+[![Smithery Marketplace](https://smithery.ai/badge/tesseract)](https://smithery.ai/server/tesseract)
+
 Official Model Context Protocol (MCP) server for **Tesseract AI**.
 
 - **SSE Endpoint**: `https://prod2.adlift.com/mcp/sse`
